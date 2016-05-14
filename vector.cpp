@@ -64,9 +64,29 @@ Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
   }
   else
   {
-
+    //NEEDS TO BE IMPLEMENTED
   }
   return *this;
+}
+
+template <class T>
+int Vector<T>::find(Vector<T> in) const
+{
+  int found = 1, insize = in.capacity();
+
+  for(int i = 0; i < count; i++)
+  {
+    if(array[i] == in.array[0])
+    {
+      found = 1;
+      for(int j = 0; j < insize; j++)
+        if(array[i + j] != in.array[j])
+          found = 0;
+      if(found)
+        return i;
+    }
+  }
+  return (size_t)-1;
 }
 
 template <class T>

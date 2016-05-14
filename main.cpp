@@ -66,8 +66,8 @@ int main(int argc, char** argv)
         inf.getline(s, ARRAY_SIZE);
         charsToInts(s, nums);
         cout << str.find(s) << endl;
-//        cout << vectorC.find(s) << endl;
-//        cout << vectorI.find(nums) << endl;
+        cout << vectorC.find(s) << endl;
+        cout << vectorI.find(nums) << endl;
         break;
       case 'S' :
         cout << "\nSubstring:\n";

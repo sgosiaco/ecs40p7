@@ -20,13 +20,14 @@ class Vector
   protected:
 
   public:
-    int size() const;
-    int capacity() const;
-    Vector<T>& operator=(const Vector<T>& vec);
-    Vector<T>& operator+=(const Vector<T>& vec);
     Vector(const T* arr);
     Vector();
     ~Vector();
+    int size() const;
+    int capacity() const;
+    Vector<T>& operator=(const Vector<T>& vec);
+    Vector<T>& operator+=(const Vector<T>& vec); //NEEDS ELSE
+    int find(Vector<T> in) const;
     friend ostream& operator<<<T>(ostream& os, const Vector& vec);
 } ;  // class Vector
 #include "vector.cpp"
