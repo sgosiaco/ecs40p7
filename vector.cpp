@@ -93,12 +93,11 @@ template <class T>
 Vector<T> Vector<T>::substr(int start, int length)
 {
   Vector<T> temp;
-  temp.array = new T[length + 1];
+  temp.array = new T[length];
   for(int i = 0; i < length; i++)
     temp.array[i] = array[i + start];
 
-  temp.array[length] = 0;
-  temp.count = temp.storage = length + 1;
+  temp.count = temp.storage = length;
   return temp;
 }
 
