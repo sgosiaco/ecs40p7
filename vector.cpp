@@ -97,7 +97,9 @@ Vector<T> Vector<T>::substr(int start, int length)
     temp[i] = array[i + start];
 
   temp[length] = 0;
-  return temp;
+  Vector<T> *p = new Vector(temp);
+  delete [] temp;
+  return *p;
 }
 
 template <class T>
