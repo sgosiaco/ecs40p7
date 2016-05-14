@@ -10,21 +10,62 @@ Vector<T>::Vector()
 }
 
 template <class T>
+Vector<T>::~Vector()
+{
+  delete [] array;
+}
+
+template <class T>
 Vector<T>::Vector(const T arr[])
 {
   for(count = 0; arr[count] != 0; count++);
   storage = count;
-  array = (T*) arr;
+  array = new T[storage];
+
+  for(int i = 0; i < storage; i++)
+    array[i] = arr[i];
 }
 
 template <class T>
-Vector<T>& Vector<T>::operator=(Vector<T> vec)
+Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
 {
+  if(this == &vec)
+    return *this;
+
   count = vec.count;
   storage = vec.storage;
+  if(array)
+    delete [] array;
+
   array = new T[storage];
+
   for(int i = 0; i < storage; i++)
     array[i] = vec.array[i];
+
+  return *this;
+}
+
+template <class T>
+Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
+{
+  if((count + vec.count) > storage)
+  {
+    storage = count + vec.count;
+    T* temp = array;
+    array = new T[storage];
+    for(int i = 0; i < count; i++)
+      array[i] = temp[i];
+
+    for(int j = count; j < storage; j++)
+      array[j] = vec.array[j - count];
+
+    delete [] temp;
+    count = storage;
+  }
+  else
+  {
+
+  }
   return *this;
 }
 
