@@ -70,7 +70,7 @@ Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
 }
 
 template <class T>
-int Vector<T>::find(Vector<T> in) const
+size_t Vector<T>::find(Vector<T> in) const
 {
   int found = 1, insize = in.capacity();
 
@@ -87,6 +87,17 @@ int Vector<T>::find(Vector<T> in) const
     }
   }
   return (size_t)-1;
+}
+
+template <class T>
+Vector<T> Vector<T>::substr(int start, int length)
+{
+  T* temp = new T[length + 1];
+  for(int i = 0; i < length; i++)
+    temp[i] = array[i + start];
+
+  temp[length] = 0;
+  return temp;
 }
 
 template <class T>

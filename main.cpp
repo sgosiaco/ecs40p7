@@ -73,8 +73,8 @@ int main(int argc, char** argv)
         cout << "\nSubstring:\n";
         inf >> start >> length;
         str2 = str.substr(start, length);
-//        vectorC2 = vectorC.substr(start, length);
-//        vectorI2 =  vectorI.substr(start, length);
+        vectorC2 = vectorC.substr(start, length);
+        vectorI2 =  vectorI.substr(start, length);
         cout << str2 << endl;
         cout << vectorC2 << endl;
         cout << vectorI2 << endl;
