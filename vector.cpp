@@ -92,14 +92,14 @@ size_t Vector<T>::find(Vector<T> in) const
 template <class T>
 Vector<T> Vector<T>::substr(int start, int length)
 {
-  T* temp = new T[length + 1];
+  Vector<T> temp;
+  temp.array = new T[length + 1];
   for(int i = 0; i < length; i++)
-    temp[i] = array[i + start];
+    temp.array[i] = array[i + start];
 
-  temp[length] = 0;
-  Vector<T> *p = new Vector(temp);
-  delete [] temp;
-  return *p;
+  temp.array[length] = 0;
+  temp.count = temp.storage = length + 1;
+  return temp;
 }
 
 template <class T>
