@@ -97,8 +97,8 @@ int main(int argc, char** argv)
         inf.getline(s, ARRAY_SIZE);
         charsToInts(s, nums);
         str.replace(start, length, s, subStart, subLength);
-//        vectorC.replace(start, length, s, subStart, subLength);
-//        vectorI.replace(start, length, nums, subStart, subLength);
+        vectorC.replace(start, length, s, subStart, subLength);
+        vectorI.replace(start, length, nums, subStart, subLength);
         cout << str.size() << ' ' << str.capacity() << ' ' << str << endl;
         cout << vectorC.size() << ' ' << vectorC.capacity() << ' ' << vectorC << endl;
         cout  << vectorI.size() << ' ' << vectorI.capacity() << ' ' << vectorI << endl;

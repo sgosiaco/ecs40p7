@@ -30,6 +30,7 @@ class Vector
     size_t find(const Vector<T> in) const;
     Vector<T> substr(int start, int length);
     Vector<T>& insert(int start, const Vector<T> in);
+    Vector<T>& replace(int st, int len, Vector<T> in, int sst, int slen);
     friend ostream& operator<<<T>(ostream& os, const Vector& vec);
 } ;  // class Vector
 #include "vector.cpp"

@@ -135,6 +135,29 @@ Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
 }
 
 template <class T>
+Vector<T>& Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
+{
+  if((count - len + slen) > storage)
+  {
+    if((count - len + slen) < (2 * storage))
+      storage *= 2;
+    else
+      storage = count - len + slen;
+    T* temp = array;
+    array = new T[storage];
+    for(int i = 0; i < count; i++)
+      array[i] = temp[i];
+    delete [] temp;
+  }
+  for(int i = count - st - len; i > 0; i--)
+    array[st + slen + i - 1] = array[st + len + i - 1];
+  for(int i = 0; i < slen; i++)
+    array[st + i] = in.array[i + sst];
+  count += (slen - len);
+  return *this;
+}
+
+template <class T>
 int Vector<T>::size() const
 {
   return count;
