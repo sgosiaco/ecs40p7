@@ -26,7 +26,7 @@ class Vector
     int size() const;
     int capacity() const;
     Vector<T>& operator=(const Vector<T>& vec);
-    Vector<T>& operator+=(const Vector<T>& vec); //NEEDS ELSE
+    Vector<T>& operator+=(const Vector<T>& vec);
     size_t find(Vector<T> in) const;
     Vector<T> substr(int start, int length);
     friend ostream& operator<<<T>(ostream& os, const Vector& vec);

@@ -50,17 +50,20 @@ Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
 {
   if((count + vec.count) > storage)
   {
-    storage = count + vec.count;
+    if((count + vec.count) < (2 * storage))
+      storage *= 2;
+    else
+      storage = count + vec.count;
     T* temp = array;
     array = new T[storage];
     for(int i = 0; i < count; i++)
       array[i] = temp[i];
 
-    for(int j = count; j < storage; j++)
-      array[j] = vec.array[j - count];
+    for(int j = 0; j < vec.count; j++)
+      array[j + count] = vec.array[j];
 
     delete [] temp;
-    count = storage;
+    count += vec.count;
   }
   else
   {
@@ -102,6 +105,7 @@ Vector<T> Vector<T>::substr(int start, int length)
   temp.count = temp.storage = length;
   return temp;
 }
+
 
 template <class T>
 int Vector<T>::size() const
