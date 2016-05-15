@@ -85,8 +85,8 @@ int main(int argc, char** argv)
         inf.getline(s, ARRAY_SIZE);
         charsToInts(s, nums);
         str.insert(start, s);
- //       vectorC.insert(start, s);
- //       vectorI.insert(start, nums);
+        vectorC.insert(start, s);
+        vectorI.insert(start, nums);
         cout  << str.size() << ' ' << str.capacity() << ' '  << str <<endl;
         cout  << vectorC.size() << ' ' << vectorC.capacity() << ' ' <<  vectorC << endl;
         cout  << vectorI.size() << ' ' << vectorI.capacity() << ' ' << vectorI << endl;

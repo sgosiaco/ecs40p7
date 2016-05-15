@@ -75,7 +75,7 @@ Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
 }
 
 template <class T>
-size_t Vector<T>::find(Vector<T> in) const
+size_t Vector<T>::find(const Vector<T> in) const
 {
   int found = 1, insize = in.capacity();
 
@@ -106,6 +106,33 @@ Vector<T> Vector<T>::substr(int start, int length)
   return temp;
 }
 
+template <class T>
+Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
+{
+  if((count + in.count) > storage)
+  {
+    while((count + in.count) > storage)
+      storage *= 2;
+    T* temp = array;
+    array = new T[storage];
+    for(int i = 0; i < start + 1; i++)
+      array[i] = temp[i];
+    for(int i = 0; i < in.count; i++)
+      array[start + i] = in.array[i];
+    for(int i = 0; i < count - start; i++)
+      array[start + in.count + i] = temp[start + i];
+    delete [] temp;
+  }
+  else
+  {
+    for(int i = start + 1; i < count; i++)
+      array[i + start + in.count] = array[i];
+    for(int i = start + 1; i < in.count; i++)
+      array[i + start + 1] = in.array[i - start - 1];
+  }
+  count += in.count;
+  return *this;
+}
 
 template <class T>
 int Vector<T>::size() const

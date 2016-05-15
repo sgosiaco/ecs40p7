@@ -27,8 +27,9 @@ class Vector
     int capacity() const;
     Vector<T>& operator=(const Vector<T>& vec);
     Vector<T>& operator+=(const Vector<T>& vec);
-    size_t find(Vector<T> in) const;
+    size_t find(const Vector<T> in) const;
     Vector<T> substr(int start, int length);
+    Vector<T>& insert(int start, const Vector<T> in);
     friend ostream& operator<<<T>(ostream& os, const Vector& vec);
 } ;  // class Vector
 #include "vector.cpp"
