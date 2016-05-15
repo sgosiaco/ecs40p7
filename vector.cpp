@@ -125,8 +125,8 @@ Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
   }
   else
   {
-    for(int i = start; i < count; i++)
-      array[i + start + in.count] = array[i];
+    for(int i = storage - 1; i > start; i--)
+      array[i] = array[i - in.count];
     for(int i = start; i < in.count + start; i++)
       array[i] = in.array[i - start];
   }
