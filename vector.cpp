@@ -64,7 +64,9 @@ Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
   }
   else
   {
-    //NEEDS TO BE IMPLEMENTED
+    for(int i = 0; i < vec.count; i++)
+      array[i + count] = vec.array[i];
+    count += vec.count;
   }
   return *this;
 }
