@@ -17,6 +17,7 @@ class Vector
   private:
     int count, storage;
     T* array;
+    static const int TWO = 2;
   protected:
 
   public:

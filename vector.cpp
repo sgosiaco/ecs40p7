@@ -51,8 +51,8 @@ Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
 {
   if((count + vec.count) > storage)
   {
-    if((count + vec.count) < (2 * storage))
-      storage *= 2;
+    if((count + vec.count) < (TWO * storage))
+      storage *= TWO;
     else //exact
       storage = count + vec.count;
     T* temp = array;
@@ -84,7 +84,7 @@ size_t Vector<T>::find(const Vector<T> in) const
 
   for(int i = 0; i < count; i++)
   {
-    if(array[i] == in.array[0])
+    if(array[i] == in.array[ 0 ])
     {
       found = 1;
 
@@ -97,7 +97,7 @@ size_t Vector<T>::find(const Vector<T> in) const
     } //if
   } //for
 
-  return (size_t)-1;
+  return (size_t) - 1;
 } //find()
 
 template <class T>
@@ -119,7 +119,7 @@ Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
   if((count + in.count) > storage)
   {
     while((count + in.count) > storage)
-      storage *= 2;
+      storage *= TWO;
     T* temp = array;
     array = new T[storage];
 
@@ -151,8 +151,8 @@ Vector<T>& Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
 {
   if((count - len + slen) > storage)
   {
-    if((count - len + slen) < (2 * storage))
-      storage *= 2;
+    if((count - len + slen) < (TWO * storage))
+      storage *= TWO;
     else //not more than double
       storage = count - len + slen;
     T* temp = array;
