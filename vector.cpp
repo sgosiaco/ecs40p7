@@ -90,15 +90,17 @@ Vector<T>::Vector(const Vector<T>& in)
 {
   count = in.count;
   storage = in.storage;
+
   if(in.array)
   {
     array = new T[storage];
+
     for(int i = 0; i < storage; i++)
       array[i] = in.array[i];
-  }
-  else
+  } //if
+  else //no array
     array = NULL;
-}
+} //copy con
 
 template <class T>
 Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
