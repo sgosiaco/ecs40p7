@@ -25,6 +25,22 @@ class VectorIterator
 };
 
 template <class T>
+class ReverseVectorIterator
+{
+  private:
+    Vector<T> *vectorPtr;
+    int position;
+    friend class Vector<T>;
+  protected:
+
+  public:
+    ReverseVectorIterator(Vector<T> *vp = NULL, int pos = 0);
+    ReverseVectorIterator<T>& operator++(int);
+    bool operator!=(const ReverseVectorIterator<T>& rhs);
+    T operator*();
+};
+
+template <class T>
 ostream& operator<<(ostream& os, const Vector<T>& vec);
 
 template <class T>
@@ -50,9 +66,13 @@ class Vector
     Vector<T>& replace(int st, int len, Vector<T> in, int sst, int slen);
     friend ostream& operator<<<T>(ostream& os, const Vector& vec);
     typedef VectorIterator<T> iterator;
+    typedef ReverseVectorIterator<T> reverse_iterator;
     friend class VectorIterator<T>;
+    friend class ReverseVectorIterator<T>;
     VectorIterator<T> begin();
     VectorIterator<T> end();
+    ReverseVectorIterator<T> rbegin();
+    ReverseVectorIterator<T> rend();
 } ;  // class Vector
 #include "vector.cpp"
 #endif	// VECTOR_H

@@ -32,6 +32,35 @@ T VectorIterator<T>::operator*()
 }
 
 template <class T>
+ReverseVectorIterator<T>::ReverseVectorIterator(Vector<T> *vp, int pos)
+{
+  vectorPtr = vp;
+  position = pos;
+}
+
+template <class T>
+ReverseVectorIterator<T>& ReverseVectorIterator<T>::operator++(int)
+{
+  if((position - 1) > -1)
+    position--;
+  else
+    position = -1;
+  return *this;
+}
+
+template <class T>
+bool ReverseVectorIterator<T>::operator!=(const ReverseVectorIterator<T>& rhs)
+{
+  return position != rhs.position;
+}
+
+template <class T>
+T ReverseVectorIterator<T>::operator*()
+{
+  return vectorPtr->array[position];
+}
+
+template <class T>
 Vector<T>::Vector()
 {
   storage = count = 0;
@@ -214,6 +243,24 @@ template <class T>
 VectorIterator<T> Vector<T>::end()
 {
   VectorIterator<T> temp;
+  temp.position = -1;
+  temp.vectorPtr = this;
+  return temp;
+}
+
+template <class T>
+ReverseVectorIterator<T> Vector<T>::rbegin()
+{
+  ReverseVectorIterator<T> temp;
+  temp.position = count - 1;
+  temp.vectorPtr = this;
+  return temp;
+}
+
+template <class T>
+ReverseVectorIterator<T> Vector<T>::rend()
+{
+  ReverseVectorIterator<T> temp;
   temp.position = -1;
   temp.vectorPtr = this;
   return temp;

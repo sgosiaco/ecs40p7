@@ -26,8 +26,8 @@ int main(int argc, char** argv)
   string::reverse_iterator sRitr;
   Vector<char>::iterator vcItr;
   Vector<int>::iterator viItr;
-//  Vector<char>::reverse_iterator vcRitr;
-//  Vector<int>::reverse_iterator viRitr;
+  Vector<char>::reverse_iterator vcRitr;
+  Vector<int>::reverse_iterator viRitr;
   Vector<char> vectorC, vectorC2;
   Vector<int> vectorI, vectorI2;
   ifstream inf(argv[1]);
@@ -128,13 +128,13 @@ int main(int argc, char** argv)
 
         cout << endl;
 
-//        for( vcRitr = vectorC.rbegin(); vcRitr != vectorC.rend(); vcRitr++)
-//          cout << *vcRitr;
+        for( vcRitr = vectorC.rbegin(); vcRitr != vectorC.rend(); vcRitr++)
+          cout << *vcRitr;
 
         cout << endl;
 
-//        for( viRitr = vectorI.rbegin(); viRitr != vectorI.rend(); viRitr++)
-//          cout << *viRitr;
+        for( viRitr = vectorI.rbegin(); viRitr != vectorI.rend(); viRitr++)
+          cout << *viRitr;
 
         cout << endl;
         break;
