@@ -213,8 +213,10 @@ VectorIterator<T> Vector<T>::begin()
 template <class T>
 VectorIterator<T> Vector<T>::end()
 {
-  VectorIterator<T> *temp = new VectorIterator<T>(this, -1);
-  return *temp;
+  VectorIterator<T> temp;
+  temp.position = -1;
+  temp.vectorPtr = this;
+  return temp;
 }
 
 template <class T>
