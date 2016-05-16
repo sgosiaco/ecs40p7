@@ -24,8 +24,8 @@ int main(int argc, char** argv)
   int nums[ARRAY_SIZE], start, length, subStart, subLength;
   string::iterator sitr;
   string::reverse_iterator sRitr;
-//  Vector<char>::iterator vcItr;
-//  Vector<int>::iterator viItr;
+  Vector<char>::iterator vcItr;
+  Vector<int>::iterator viItr;
 //  Vector<char>::reverse_iterator vcRitr;
 //  Vector<int>::reverse_iterator viRitr;
   Vector<char> vectorC, vectorC2;
@@ -110,13 +110,13 @@ int main(int argc, char** argv)
 
         cout << endl;
 
-//        for( vcItr = vectorC.begin(); vcItr != vectorC.end(); vcItr++)
-//          cout << *vcItr;
+        for( vcItr = vectorC.begin(); vcItr != vectorC.end(); vcItr++)
+          cout << *vcItr;
 
         cout << endl;
 
-//        for( viItr = vectorI.begin(); viItr != vectorI.end(); viItr++)
-//          cout << *viItr;
+        for( viItr = vectorI.begin(); viItr != vectorI.end(); viItr++)
+          cout << *viItr;
 
         cout << endl;
 

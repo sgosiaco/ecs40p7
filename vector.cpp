@@ -3,6 +3,35 @@
 using namespace std;
 
 template <class T>
+VectorIterator<T>::VectorIterator(Vector<T> *vp, int pos)
+{
+  vectorPtr = vp;
+  position = pos;
+}
+
+template <class T>
+VectorIterator<T>& VectorIterator<T>::operator++(int)
+{
+  if((position + 1) < vectorPtr->size())
+    position++;
+  else
+    position = -1;
+  return *this;
+}
+
+template <class T>
+bool VectorIterator<T>::operator!=(const VectorIterator<T>& rhs)
+{
+  return position != rhs.position;
+}
+
+template <class T>
+T VectorIterator<T>::operator*()
+{
+  return vectorPtr->array[position];
+}
+
+template <class T>
 Vector<T>::Vector()
 {
   storage = count = 0;
@@ -171,6 +200,22 @@ Vector<T>& Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
   count += (slen - len);
   return *this;
 } //replace()
+
+template <class T>
+VectorIterator<T> Vector<T>::begin()
+{
+  VectorIterator<T> temp;
+  temp.position = 0;
+  temp.vectorPtr = this;
+  return temp;
+}
+
+template <class T>
+VectorIterator<T> Vector<T>::end()
+{
+  VectorIterator<T> *temp = new VectorIterator<T>(this, -1);
+  return *temp;
+}
 
 template <class T>
 int Vector<T>::size() const

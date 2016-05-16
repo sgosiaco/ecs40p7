@@ -9,6 +9,22 @@ template <class T>
 class Vector;
 
 template <class T>
+class VectorIterator
+{
+  private:
+    Vector<T> *vectorPtr;
+    int position;
+    friend class Vector<T>;
+  protected:
+
+  public:
+    VectorIterator(Vector<T> *vp = NULL, int pos = 0);
+    VectorIterator<T>& operator++(int);
+    bool operator!=(const VectorIterator<T>& rhs);
+    T operator*();
+};
+
+template <class T>
 ostream& operator<<(ostream& os, const Vector<T>& vec);
 
 template <class T>
@@ -33,6 +49,10 @@ class Vector
     Vector<T>& insert(int start, const Vector<T> in);
     Vector<T>& replace(int st, int len, Vector<T> in, int sst, int slen);
     friend ostream& operator<<<T>(ostream& os, const Vector& vec);
+    typedef VectorIterator<T> iterator;
+    friend class VectorIterator<T>;
+    VectorIterator<T> begin();
+    VectorIterator<T> end();
 } ;  // class Vector
 #include "vector.cpp"
 #endif	// VECTOR_H
