@@ -86,7 +86,7 @@ Vector<T>::Vector(const T arr[])
 } //array con
 
 template <class T>
-const Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
+Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
 {
   if(this == &vec)
     return *this;
