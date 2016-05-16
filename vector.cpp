@@ -7,58 +7,58 @@ VectorIterator<T>::VectorIterator(Vector<T> *vp, int pos)
 {
   vectorPtr = vp;
   position = pos;
-}
+} //con
 
 template <class T>
 VectorIterator<T>& VectorIterator<T>::operator++(int)
 {
   if((position + 1) < vectorPtr->size())
     position++;
-  else
-    position = -1;
+  else //dne
+    position = - 1;
   return *this;
-}
+} //++
 
 template <class T>
 bool VectorIterator<T>::operator!=(const VectorIterator<T>& rhs)
 {
   return position != rhs.position;
-}
+} //!=
 
 template <class T>
 T VectorIterator<T>::operator*()
 {
   return vectorPtr->array[position];
-}
+} //deref
 
 template <class T>
 ReverseVectorIterator<T>::ReverseVectorIterator(Vector<T> *vp, int pos)
 {
   vectorPtr = vp;
   position = pos;
-}
+} //con
 
 template <class T>
 ReverseVectorIterator<T>& ReverseVectorIterator<T>::operator++(int)
 {
   if((position - 1) > -1)
     position--;
-  else
-    position = -1;
+  else //dne
+    position = - 1;
   return *this;
-}
+} //++
 
 template <class T>
 bool ReverseVectorIterator<T>::operator!=(const ReverseVectorIterator<T>& rhs)
 {
   return position != rhs.position;
-}
+} //!=
 
 template <class T>
 T ReverseVectorIterator<T>::operator*()
 {
   return vectorPtr->array[position];
-}
+} //deref
 
 template <class T>
 Vector<T>::Vector()
@@ -233,38 +233,30 @@ Vector<T>& Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
 template <class T>
 VectorIterator<T> Vector<T>::begin()
 {
-  VectorIterator<T> temp;
-  temp.position = 0;
-  temp.vectorPtr = this;
+  VectorIterator<T> temp (this, 0);
   return temp;
-}
+} //begin()
 
 template <class T>
 VectorIterator<T> Vector<T>::end()
 {
-  VectorIterator<T> temp;
-  temp.position = -1;
-  temp.vectorPtr = this;
+  VectorIterator<T> temp (this, - 1);
   return temp;
-}
+} //end()
 
 template <class T>
 ReverseVectorIterator<T> Vector<T>::rbegin()
 {
-  ReverseVectorIterator<T> temp;
-  temp.position = count - 1;
-  temp.vectorPtr = this;
+  ReverseVectorIterator<T> temp (this, count - 1);
   return temp;
-}
+} //rbegin()
 
 template <class T>
 ReverseVectorIterator<T> Vector<T>::rend()
 {
-  ReverseVectorIterator<T> temp;
-  temp.position = -1;
-  temp.vectorPtr = this;
+  ReverseVectorIterator<T> temp (this, - 1);
   return temp;
-}
+} //rend()
 
 template <class T>
 int Vector<T>::size() const
