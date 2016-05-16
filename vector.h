@@ -22,7 +22,7 @@ class VectorIterator
     VectorIterator<T>& operator++(int);
     bool operator!=(const VectorIterator<T>& rhs);
     T operator*();
-};
+}; //VectorIterator
 
 template <class T>
 class ReverseVectorIterator
@@ -38,7 +38,7 @@ class ReverseVectorIterator
     ReverseVectorIterator<T>& operator++(int);
     bool operator!=(const ReverseVectorIterator<T>& rhs);
     T operator*();
-};
+}; //ReverseVectorIterator
 
 template <class T>
 ostream& operator<<(ostream& os, const Vector<T>& vec);
