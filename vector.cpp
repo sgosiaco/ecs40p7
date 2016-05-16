@@ -86,6 +86,21 @@ Vector<T>::Vector(const T arr[])
 } //array con
 
 template <class T>
+Vector<T>::Vector(const Vector<T>& in)
+{
+  count = in.count;
+  storage = in.storage;
+  if(in.array)
+  {
+    array = new T[storage];
+    for(int i = 0; i < storage; i++)
+      array[i] = in.array[i];
+  }
+  else
+    array = NULL;
+}
+
+template <class T>
 Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
 {
   if(this == &vec)

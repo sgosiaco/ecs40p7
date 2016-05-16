@@ -55,6 +55,7 @@ class Vector
   public:
     Vector(const T* arr);
     Vector();
+    Vector(const Vector<T>& in);
     ~Vector();
     int size() const;
     int capacity() const;
