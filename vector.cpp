@@ -10,7 +10,7 @@ VectorIterator<T>::VectorIterator(Vector<T> *vp, int pos)
 } //con
 
 template <class T>
-VectorIterator<T>& VectorIterator<T>::operator++(int)
+const VectorIterator<T>& VectorIterator<T>::operator++(int)
 {
   if((position + 1) < vectorPtr->size())
     position++;
@@ -20,7 +20,7 @@ VectorIterator<T>& VectorIterator<T>::operator++(int)
 } //++
 
 template <class T>
-bool VectorIterator<T>::operator!=(const VectorIterator<T>& rhs)
+bool VectorIterator<T>::operator!=(const VectorIterator<T>& rhs) const
 {
   return position != rhs.position;
 } //!=
@@ -39,7 +39,7 @@ ReverseVectorIterator<T>::ReverseVectorIterator(Vector<T> *vp, int pos)
 } //con
 
 template <class T>
-ReverseVectorIterator<T>& ReverseVectorIterator<T>::operator++(int)
+const ReverseVectorIterator<T>& ReverseVectorIterator<T>::operator++(int)
 {
   if((position - 1) > -1)
     position--;
@@ -50,6 +50,7 @@ ReverseVectorIterator<T>& ReverseVectorIterator<T>::operator++(int)
 
 template <class T>
 bool ReverseVectorIterator<T>::operator!=(const ReverseVectorIterator<T>& rhs)
+const
 {
   return position != rhs.position;
 } //!=
@@ -85,7 +86,7 @@ Vector<T>::Vector(const T arr[])
 } //array con
 
 template <class T>
-Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
+const Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
 {
   if(this == &vec)
     return *this;
@@ -105,7 +106,7 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
 } //=
 
 template <class T>
-Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
+const Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
 {
   if((count + vec.count) > storage)
   {
@@ -159,7 +160,7 @@ size_t Vector<T>::find(const Vector<T> in) const
 } //find()
 
 template <class T>
-Vector<T> Vector<T>::substr(int start, int length)
+const Vector<T> Vector<T>::substr(int start, int length)
 {
   Vector<T> temp;
   temp.array = new T[length];
@@ -172,7 +173,7 @@ Vector<T> Vector<T>::substr(int start, int length)
 } //substr()
 
 template <class T>
-Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
+const Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
 {
   if((count + in.count) > storage)
   {
@@ -205,7 +206,7 @@ Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
 } //insert()
 
 template <class T>
-Vector<T>& Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
+const Vector<T>& Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
 {
   if((count - len + slen) > storage)
   {

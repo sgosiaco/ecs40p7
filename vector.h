@@ -19,8 +19,8 @@ class VectorIterator
 
   public:
     VectorIterator(Vector<T> *vp = NULL, int pos = 0);
-    VectorIterator<T>& operator++(int);
-    bool operator!=(const VectorIterator<T>& rhs);
+    const VectorIterator<T>& operator++(int);
+    bool operator!=(const VectorIterator<T>& rhs) const;
     T operator*();
 }; //VectorIterator
 
@@ -35,8 +35,8 @@ class ReverseVectorIterator
 
   public:
     ReverseVectorIterator(Vector<T> *vp = NULL, int pos = 0);
-    ReverseVectorIterator<T>& operator++(int);
-    bool operator!=(const ReverseVectorIterator<T>& rhs);
+    const ReverseVectorIterator<T>& operator++(int);
+    bool operator!=(const ReverseVectorIterator<T>& rhs) const;
     T operator*();
 }; //ReverseVectorIterator
 
@@ -58,12 +58,12 @@ class Vector
     ~Vector();
     int size() const;
     int capacity() const;
-    Vector<T>& operator=(const Vector<T>& vec);
-    Vector<T>& operator+=(const Vector<T>& vec);
+    const Vector<T>& operator=(const Vector<T>& vec);
+    const Vector<T>& operator+=(const Vector<T>& vec);
     size_t find(const Vector<T> in) const;
-    Vector<T> substr(int start, int length);
-    Vector<T>& insert(int start, const Vector<T> in);
-    Vector<T>& replace(int st, int len, Vector<T> in, int sst, int slen);
+    const Vector<T> substr(int start, int length);
+    const Vector<T>& insert(int start, const Vector<T> in);
+    const Vector<T>& replace(int st, int len, Vector<T> in, int sst, int slen);
     friend ostream& operator<<<T>(ostream& os, const Vector& vec);
     typedef VectorIterator<T> iterator;
     typedef ReverseVectorIterator<T> reverse_iterator;
