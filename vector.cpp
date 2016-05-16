@@ -206,7 +206,8 @@ const Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
 } //insert()
 
 template <class T>
-const Vector<T>& Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
+const Vector<T>& 
+Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
 {
   if((count - len + slen) > storage)
   {
