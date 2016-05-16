@@ -2,7 +2,7 @@
 #define	VECTOR_H
 
 #include <iostream>
-
+//replace const?
 using namespace std;
 
 template <class T>
