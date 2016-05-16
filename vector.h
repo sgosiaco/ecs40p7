@@ -21,7 +21,7 @@ class VectorIterator
     VectorIterator(Vector<T> *vp = NULL, int pos = 0);
     const VectorIterator<T>& operator++(int);
     bool operator!=(const VectorIterator<T>& rhs) const;
-    T operator*();
+    const T operator*() const;
 }; //VectorIterator
 
 template <class T>
@@ -37,7 +37,7 @@ class ReverseVectorIterator
     ReverseVectorIterator(Vector<T> *vp = NULL, int pos = 0);
     const ReverseVectorIterator<T>& operator++(int);
     bool operator!=(const ReverseVectorIterator<T>& rhs) const;
-    T operator*();
+    const T operator*() const;
 }; //ReverseVectorIterator
 
 template <class T>

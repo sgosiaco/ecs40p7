@@ -26,7 +26,7 @@ bool VectorIterator<T>::operator!=(const VectorIterator<T>& rhs) const
 } //!=
 
 template <class T>
-T VectorIterator<T>::operator*()
+const T VectorIterator<T>::operator*() const
 {
   return vectorPtr->array[position];
 } //deref
@@ -56,7 +56,7 @@ const
 } //!=
 
 template <class T>
-T ReverseVectorIterator<T>::operator*()
+const T ReverseVectorIterator<T>::operator*() const
 {
   return vectorPtr->array[position];
 } //deref
@@ -206,7 +206,7 @@ const Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
 } //insert()
 
 template <class T>
-const Vector<T>& 
+const Vector<T>&
 Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
 {
   if((count - len + slen) > storage)
