@@ -177,7 +177,7 @@ size_t Vector<T>::find(const Vector<T> in) const
 } //find()
 
 template <class T>
-const Vector<T> Vector<T>::substr(int start, int length)
+const Vector<T> Vector<T>::substr(int start, int length) const
 {
   Vector<T> temp;
   temp.array = new T[length];
@@ -190,7 +190,7 @@ const Vector<T> Vector<T>::substr(int start, int length)
 } //substr()
 
 template <class T>
-const Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
+Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
 {
   if((count + in.count) > storage)
   {
@@ -223,8 +223,8 @@ const Vector<T>& Vector<T>::insert(int start, const Vector<T> in)
 } //insert()
 
 template <class T>
-const Vector<T>&
-Vector<T>::replace(int st, int len, Vector<T> in, int sst, int slen)
+Vector<T>&
+Vector<T>::replace(int st, int len, const Vector<T> in, int sst, int slen)
 {
   if((count - len + slen) > storage)
   {
