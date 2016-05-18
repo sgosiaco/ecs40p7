@@ -240,8 +240,8 @@ Vector<T>::replace(int st, int len, const Vector<T> in, int sst, int slen)
     delete [] temp;
   } //if
 
-  for(int i = count - st - len; i > 0; i--)
-    array[st + slen + i - 1] = array[st + len + i - 1];
+  for(int i = count - st - len - 1; i > - 1; i--)
+    array[st + slen + i] = array[st + len + i];
 
   for(int i = 0; i < slen; i++)
     array[st + i] = in.array[i + sst];
