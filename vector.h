@@ -14,7 +14,6 @@ class VectorIterator
   private:
     Vector<T> *vectorPtr;
     int position;
-    friend class Vector<T>;
   protected:
 
   public:
@@ -30,7 +29,6 @@ class ReverseVectorIterator
   private:
     Vector<T> *vectorPtr;
     int position;
-    friend class Vector<T>;
   protected:
 
   public:
