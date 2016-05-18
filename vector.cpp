@@ -250,6 +250,26 @@ Vector<T>::replace(int st, int len, const Vector<T> in, int sst, int slen)
 } //replace()
 
 template <class T>
+int Vector<T>::size() const
+{
+  return count;
+} //size()
+
+template <class T>
+int Vector<T>::capacity() const
+{
+  return storage;
+} //capacity()
+
+template <class T>
+ostream& operator<<(ostream& os, const Vector<T>& vec)
+{
+  for(int i = 0; i < vec.count; i++)
+      os << vec.array[i];
+  return os;
+} //<<
+
+template <class T>
 VectorIterator<T> Vector<T>::begin()
 {
   VectorIterator<T> temp (this, 0);
@@ -276,23 +296,3 @@ ReverseVectorIterator<T> Vector<T>::rend()
   ReverseVectorIterator<T> temp (this, - 1);
   return temp;
 } //rend()
-
-template <class T>
-int Vector<T>::size() const
-{
-  return count;
-} //size()
-
-template <class T>
-int Vector<T>::capacity() const
-{
-  return storage;
-} //capacity()
-
-template <class T>
-ostream& operator<<(ostream& os, const Vector<T>& vec)
-{
-  for(int i = 0; i < vec.count; i++)
-      os << vec.array[i];
-  return os;
-} //<<
