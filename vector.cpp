@@ -123,7 +123,7 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& vec)
 } //=
 
 template <class T>
-const Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
+Vector<T>& Vector<T>::operator+=(const Vector<T>& vec)
 {
   if((count + vec.count) > storage)
   {
