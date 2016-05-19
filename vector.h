@@ -58,7 +58,7 @@ class Vector
     int size() const;
     int capacity() const;
     Vector<T>& operator=(const Vector<T>& vec);
-    const Vector<T>& operator+=(const Vector<T>& vec);
+    Vector<T>& operator+=(const Vector<T>& vec);
     size_t find(const Vector<T> in) const;
     const Vector<T> substr(int start, int length) const;
     Vector<T>& insert(int start, const Vector<T> in);
