@@ -272,27 +272,23 @@ ostream& operator<<(ostream& os, const Vector<T>& vec)
 template <class T>
 VectorIterator<T> Vector<T>::begin() const
 {
-  VectorIterator<T> temp (this, 0);
-  return temp;
+  return VectorIterator<T> (this, 0);
 } //begin()
 
 template <class T>
 VectorIterator<T> Vector<T>::end() const
 {
-  VectorIterator<T> temp (this, - 1);
-  return temp;
+  return VectorIterator<T> (this, - 1);
 } //end()
 
 template <class T>
 ReverseVectorIterator<T> Vector<T>::rbegin() const
 {
-  ReverseVectorIterator<T> temp (this, count - 1);
-  return temp;
+  return ReverseVectorIterator<T> (this, count - 1);
 } //rbegin()
 
 template <class T>
 ReverseVectorIterator<T> Vector<T>::rend() const
 {
-  ReverseVectorIterator<T> temp (this, - 1);
-  return temp;
+  return ReverseVectorIterator<T> (this, - 1);
 } //rend()
