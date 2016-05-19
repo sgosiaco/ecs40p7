@@ -3,7 +3,7 @@
 using namespace std;
 
 template <class T>
-VectorIterator<T>::VectorIterator(Vector<T> *vp, int pos)
+VectorIterator<T>::VectorIterator(const Vector<T> *vp, int pos)
 {
   vectorPtr = vp;
   position = pos;
@@ -32,7 +32,7 @@ const T VectorIterator<T>::operator*() const
 } //deref
 
 template <class T>
-ReverseVectorIterator<T>::ReverseVectorIterator(Vector<T> *vp, int pos)
+ReverseVectorIterator<T>::ReverseVectorIterator(const Vector<T> *vp, int pos)
 {
   vectorPtr = vp;
   position = pos;
@@ -270,28 +270,28 @@ ostream& operator<<(ostream& os, const Vector<T>& vec)
 } //<<
 
 template <class T>
-VectorIterator<T> Vector<T>::begin()
+VectorIterator<T> Vector<T>::begin() const
 {
   VectorIterator<T> temp (this, 0);
   return temp;
 } //begin()
 
 template <class T>
-VectorIterator<T> Vector<T>::end()
+VectorIterator<T> Vector<T>::end() const
 {
   VectorIterator<T> temp (this, - 1);
   return temp;
 } //end()
 
 template <class T>
-ReverseVectorIterator<T> Vector<T>::rbegin()
+ReverseVectorIterator<T> Vector<T>::rbegin() const
 {
   ReverseVectorIterator<T> temp (this, count - 1);
   return temp;
 } //rbegin()
 
 template <class T>
-ReverseVectorIterator<T> Vector<T>::rend()
+ReverseVectorIterator<T> Vector<T>::rend() const
 {
   ReverseVectorIterator<T> temp (this, - 1);
   return temp;

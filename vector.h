@@ -2,7 +2,7 @@
 #define	VECTOR_H
 
 #include <iostream>
-//replace const?
+
 using namespace std;
 
 template <class T>
@@ -12,12 +12,12 @@ template <class T>
 class VectorIterator
 {
   private:
-    Vector<T> *vectorPtr;
+    const Vector<T> *vectorPtr;
     int position;
   protected:
 
   public:
-    VectorIterator(Vector<T> *vp = NULL, int pos = 0);
+    VectorIterator(const Vector<T> *vp = NULL, int pos = 0);
     const VectorIterator<T>& operator++(int);
     bool operator!=(const VectorIterator<T>& rhs) const;
     const T operator*() const;
@@ -27,12 +27,12 @@ template <class T>
 class ReverseVectorIterator
 {
   private:
-    Vector<T> *vectorPtr;
+    const Vector<T> *vectorPtr;
     int position;
   protected:
 
   public:
-    ReverseVectorIterator(Vector<T> *vp = NULL, int pos = 0);
+    ReverseVectorIterator(const Vector<T> *vp = NULL, int pos = 0);
     const ReverseVectorIterator<T>& operator++(int);
     bool operator!=(const ReverseVectorIterator<T>& rhs) const;
     const T operator*() const;
@@ -68,10 +68,10 @@ class Vector
     typedef ReverseVectorIterator<T> reverse_iterator;
     friend class VectorIterator<T>;
     friend class ReverseVectorIterator<T>;
-    VectorIterator<T> begin();
-    VectorIterator<T> end();
-    ReverseVectorIterator<T> rbegin();
-    ReverseVectorIterator<T> rend();
+    VectorIterator<T> begin() const;
+    VectorIterator<T> end() const;
+    ReverseVectorIterator<T> rbegin() const;
+    ReverseVectorIterator<T> rend() const;
 } ;  // class Vector
 #include "vector.cpp"
 #endif	// VECTOR_H
